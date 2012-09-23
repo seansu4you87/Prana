@@ -1,0 +1,9 @@
+[submodule "lib/AFNetworking"]
+	path = lib/AFNetworking
+	url = git@github.com:seansu4you87/AFNetworking.git
+[submodule "lib/Ardha"]
+	path = lib/Ardha
+	url = git@github.com:seansu4you87/Ardha.git
+[submodule "lib/ECSlidingViewController"]
+	path = lib/ECSlidingViewController
+	url = git@github.com:seansu4you87/ECSlidingViewController.git
