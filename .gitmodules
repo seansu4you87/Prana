@@ -7,3 +7,6 @@
 [submodule "lib/ECSlidingViewController"]
 	path = lib/ECSlidingViewController
 	url = git@github.com:seansu4you87/ECSlidingViewController.git
+[submodule "lib/ViewDeck"]
+	path = lib/ViewDeck
+	url = git@github.com:seansu4you87/ViewDeck.git

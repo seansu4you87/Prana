@@ -46,7 +46,7 @@
 	self.view.layer.shadowRadius = 10.0f;
 	self.view.layer.shadowColor = [UIColor blackColor].CGColor;
 	
-	//[self.view addGestureRecognizer:self.slidingViewController.panGesture];
+	[self.view addGestureRecognizer:self.slidingViewController.panGesture];
 	self.slidingViewController.anchorRightRevealAmount = 300.0f;
 	self.slidingViewController.anchorRightPeekAmount = 40.0f;
 }
