@@ -42,13 +42,13 @@
 {
 	[super viewWillAppear:animated];
 	
-	self.view.layer.shadowOpacity = 0.75f;
+	/*self.view.layer.shadowOpacity = 0.75f;
 	self.view.layer.shadowRadius = 10.0f;
 	self.view.layer.shadowColor = [UIColor blackColor].CGColor;
 	
 	[self.view addGestureRecognizer:self.slidingViewController.panGesture];
 	self.slidingViewController.anchorRightRevealAmount = 300.0f;
-	self.slidingViewController.anchorRightPeekAmount = 40.0f;
+	self.slidingViewController.anchorRightPeekAmount = 40.0f;*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,9 +67,9 @@
 
 #pragma mark - Actions
 
-- (IBAction)revealProjects:(id)sender
+- (IBAction)revealBase:(id)sender
 {
-	[self.slidingViewController anchorTopViewTo:ECRight];
+	[self.viewDeckController toggleLeftView];
 }
 
 #pragma mark - Table view data source

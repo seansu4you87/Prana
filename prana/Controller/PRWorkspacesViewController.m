@@ -121,20 +121,29 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//	/*ECSlidingViewController *layer2 = (ECSlidingViewController *)self.slidingViewController.topViewController;
+//	PRProjectsViewController *projectsViewController = (PRProjectsViewController *)layer2.underLeftViewController;
+//	projectsViewController.workspace = [self workspaceAtIndex:indexPath.row];
+//	
+//	[self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+//		[self.slidingViewController resetTopView];
+//		[projectsViewController.tableView reloadData];
+//	}];*/
+//	
+//	PRProjectsViewController *projectsViewController = [[PRProjectsViewController alloc] init];
+//	projectsViewController.workspace = [self workspaceAtIndex:indexPath.row];
+//	[self.navigationController pushViewController:projectsViewController animated:YES];
+//}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	/*ECSlidingViewController *layer2 = (ECSlidingViewController *)self.slidingViewController.topViewController;
-	PRProjectsViewController *projectsViewController = (PRProjectsViewController *)layer2.underLeftViewController;
-	projectsViewController.workspace = [self workspaceAtIndex:indexPath.row];
-	
-	[self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-		[self.slidingViewController resetTopView];
-		[projectsViewController.tableView reloadData];
-	}];*/
-	
-	PRProjectsViewController *projectsViewController = [[PRProjectsViewController alloc] init];
-	projectsViewController.workspace = [self workspaceAtIndex:indexPath.row];
-	[self.navigationController pushViewController:projectsViewController animated:YES];
+	if ([segue.identifier isEqualToString:@"PushProjects"])
+	{
+		PRProjectsViewController *projectsViewController = (PRProjectsViewController *)segue.destinationViewController;
+		projectsViewController.workspace = [self workspaceAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+	}
 }
 
 @end

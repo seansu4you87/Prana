@@ -63,10 +63,10 @@
 
 #pragma mark - Actions
 
-- (IBAction)revealWorkspaces:(id)sender
-{
-	[self.slidingViewController.slidingViewController anchorTopViewTo:ECRight];
-}
+//- (IBAction)revealWorkspaces:(id)sender
+//{
+//	[self.slidingViewController.slidingViewController anchorTopViewTo:ECRight];
+//}
 
 #pragma mark - Table view data source
 
@@ -136,14 +136,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UINavigationController *topNav = (UINavigationController *)self.slidingViewController.topViewController;
+	UINavigationController *topNav = (UINavigationController *)self.viewDeckController.centerController;
 	PRTasksViewController *tasksViewController = (PRTasksViewController *)topNav.topViewController;
 	tasksViewController.project = [self projectAtIndex:indexPath.row];
 	tasksViewController.title = tasksViewController.project.name;
 	
-	[self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-		[self.slidingViewController resetTopView];
+	[self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
+		
 		[tasksViewController.tableView reloadData];
+
 	}];
 }
 

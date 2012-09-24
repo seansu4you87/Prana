@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ECSlidingViewController.h"
+#import "IIViewDeckController.h"
 
 @class AProject;
 
@@ -16,6 +16,6 @@
 
 @property(nonatomic, strong) AProject *project;
 
-- (IBAction)revealProjects:(id)sender;
+- (IBAction)revealBase:(id)sender;
 
 @end

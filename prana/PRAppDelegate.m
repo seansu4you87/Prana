@@ -8,7 +8,7 @@
 
 #import "PRAppDelegate.h"
 
-#import "ECSlidingViewController.h"
+#import "IIViewDeckController.h"
 
 @implementation PRAppDelegate
 
@@ -16,7 +16,7 @@
 {
     // Override point for customization after application launch.
 	
-	ECSlidingViewController *layer1 = (ECSlidingViewController *)self.window.rootViewController;
+	IIViewDeckController *viewDeck = (IIViewDeckController *)self.window.rootViewController;
 	
 	UIStoryboard *storyboard;
 	
@@ -29,8 +29,8 @@
 	UINavigationController *baseNav = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"BaseNav"];
 	//baseNav.viewControllers = @[[storyboard instantiateViewControllerWithIdentifier:@"Workspaces"], [storyboard instantiateViewControllerWithIdentifier:@"Projects"]];
 	
-	layer1.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"TopNav"];
-	layer1.underLeftViewController = baseNav;
+	viewDeck.centerController = [storyboard instantiateViewControllerWithIdentifier:@"TopNav"];
+	viewDeck.leftController = baseNav;
 	
 	return YES;
 	

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ECSlidingViewController.h"
+#import "IIViewDeckController.h"
 
 @class AWorkspace;
 
@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) AWorkspace *workspace;
 
-- (IBAction)revealWorkspaces:(id)sender;
+//- (IBAction)revealWorkspaces:(id)sender;
 
 
 @end

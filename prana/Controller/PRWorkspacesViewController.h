@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ECSlidingViewController.h"
-
 @interface PRWorkspacesViewController : UITableViewController
 
 @end
