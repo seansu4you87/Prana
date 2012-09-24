@@ -8,11 +8,31 @@
 
 #import "PRAppDelegate.h"
 
+#import "ECSlidingViewController.h"
+
 @implementation PRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+	
+	ECSlidingViewController *layer1 = (ECSlidingViewController *)self.window.rootViewController;
+	
+	UIStoryboard *storyboard;
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+	} else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPad" bundle:nil];
+	}
+	
+	UINavigationController *baseNav = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"BaseNav"];
+	//baseNav.viewControllers = @[[storyboard instantiateViewControllerWithIdentifier:@"Workspaces"], [storyboard instantiateViewControllerWithIdentifier:@"Projects"]];
+	
+	layer1.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"TopNav"];
+	layer1.underLeftViewController = baseNav;
+	
+	return YES;
 	
     return YES;
 }

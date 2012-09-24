@@ -1,19 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="chw-2d-4Mz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KeP-tn-ETb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Root View Controller-->
-        <scene sceneID="t3b-cU-GEJ">
+        <!--Sliding View Controller-->
+        <scene sceneID="Sya-MB-hrh">
             <objects>
-                <tableViewController id="lLq-Ce-Zo5" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="evU-0g-pJu">
+                <viewController id="KeP-tn-ETb" customClass="ECSlidingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="svE-ii-qoR">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="6fp-oy-GT7" kind="custom" id="Gp4-Of-9fl"/>
+                        <segue destination="4qn-Ca-SzY" kind="custom" id="Lnc-st-dL5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hH-rb-7nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-288" y="-299"/>
+        </scene>
+        <!--Base Navigation View Controller-->
+        <scene sceneID="WS6-03-RTA">
+            <objects>
+                <navigationController storyboardIdentifier="BaseNav" definesPresentationContext="YES" id="6fp-oy-GT7" customClass="PRBaseNavigationViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Yn-ij-G7d">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ttL-Y2-vah" kind="relationship" relationship="rootViewController" id="CED-pE-0m4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KYk-0V-hvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="-299"/>
+        </scene>
+        <!--Workspaces View Controller-->
+        <scene sceneID="QTi-C9-iyn">
+            <objects>
+                <tableViewController storyboardIdentifier="Workspaces" id="ttL-Y2-vah" customClass="PRWorkspacesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LAD-y0-h4P">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8nq-nh-7CY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WorkspaceCell" id="amA-k1-1Qf">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -23,29 +56,129 @@
                                 </view>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ttL-Y2-vah" id="Ukj-57-dMK"/>
+                            <outlet property="delegate" destination="ttL-Y2-vah" id="Bzl-TT-5Ss"/>
+                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="iy9-mf-5q5"/>
+                    <navigationItem key="navigationItem" id="oCO-bO-VXC"/>
+                    <connections>
+                        <segue destination="bZL-bR-5e9" kind="push" id="H1o-FV-SPk"/>
+                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LmT-Qv-eIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKU-GA-Uiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="-118"/>
+            <point key="canvasLocation" x="545" y="-299"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ePD-Ue-wPT">
+        <!--Projects View Controller-->
+        <scene sceneID="Yht-wN-Zd4">
             <objects>
-                <navigationController definesPresentationContext="YES" id="chw-2d-4Mz" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jqf-ek-nLi">
+                <tableViewController storyboardIdentifier="Projects" id="bZL-bR-5e9" customClass="PRProjectsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hGI-Gb-sk8">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectCell" id="2qs-fd-DJN">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bZL-bR-5e9" id="Yg3-X1-Mpn"/>
+                            <outlet property="delegate" destination="bZL-bR-5e9" id="zVV-Le-hre"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="eqF-2K-G9O"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TFD-Wb-ay0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="-299"/>
+        </scene>
+        <!--Tasks View Controller-->
+        <scene sceneID="TAE-92-HqY">
+            <objects>
+                <tableViewController storyboardIdentifier="Tasks" id="l3B-h5-HBV" customClass="PRTasksViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gq0-mB-Ofc">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskCell" id="XRn-gu-dZn">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="l3B-h5-HBV" id="dRP-vX-rEf"/>
+                            <outlet property="delegate" destination="l3B-h5-HBV" id="pZj-Vl-FiA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="YPP-1k-v7F">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="f5s-d0-kGv">
+                            <connections>
+                                <action selector="revealProjects:" destination="l3B-h5-HBV" id="CKt-TP-Oj0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAb-7T-yMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="545" y="384"/>
+        </scene>
+        <!--Top Navigation View Controller-->
+        <scene sceneID="Fkj-mb-Q8J">
+            <objects>
+                <navigationController storyboardIdentifier="TopNav" definesPresentationContext="YES" id="4qn-Ca-SzY" customClass="PRTopNavigationViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Msu-sT-0oj">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="lLq-Ce-Zo5" kind="relationship" relationship="rootViewController" id="I4W-Zy-AOT"/>
+                        <segue destination="l3B-h5-HBV" kind="relationship" relationship="rootViewController" id="ZMf-sH-qP3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I4N-ka-I8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nI7-cr-yaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="-118"/>
+            <point key="canvasLocation" x="133" y="384"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="PRBaseNavigationViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRBaseNavigationViewController.h"/>
+        </class>
+        <class className="PRProjectsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRProjectsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealWorkspaces:"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+            </relationships>
+        </class>
+        <class className="PRTasksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRTasksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealProjects:"/>
+            </relationships>
+        </class>
+        <class className="PRTopNavigationViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRTopNavigationViewController.h"/>
+        </class>
+        <class className="PRWorkspacesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PRWorkspacesViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
